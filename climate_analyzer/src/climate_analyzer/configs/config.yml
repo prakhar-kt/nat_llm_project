@@ -1,0 +1,24 @@
+functions:
+  list_countries:
+    _type: list_countries
+  calculate_statistics:
+    _type: calculate_statistics
+  find_extreme_years:
+    _type: find_extreme_years
+  create_visualization:
+    _type: create_visualization
+    output_dir: "."
+
+llms:
+  nim_llm:
+    _type: nim
+    model_name: nvidia/nemotron-3.5-lightning-30b-a3b
+    temperature: 0.0
+    chat_template_kwargs:
+      enable_thinking: false
+
+workflow:
+  _type: react_agent
+  llm_name: nim_llm
+  tool_names: [list_countries, calculate_statistics, find_extreme_years, create_visualization]
+  verbose: true

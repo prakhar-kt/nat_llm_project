@@ -1,0 +1,2 @@
+[nat.components]
+simple_tool_demo = simple_tool_demo.register

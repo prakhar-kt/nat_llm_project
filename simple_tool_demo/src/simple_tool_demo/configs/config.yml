@@ -1,0 +1,17 @@
+functions:
+  calculate_statistics:
+    _type: simple_calculate_statistics
+
+llms:
+  nim_llm:
+    _type: nim
+    model_name: nvidia/nemotron-3.5-lightning-30b-a3b
+    temperature: 0.0
+    chat_template_kwargs:
+      enable_thinking: false
+
+workflow:
+  _type: react_agent
+  llm_name: nim_llm
+  tool_names: [calculate_statistics]
+  verbose: true
